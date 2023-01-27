@@ -1,9 +1,11 @@
 const container = document.querySelector('.grid-container');
 const body = document.querySelector('body');
+createGrid();
+
+// Gets the nodelist of all grid-cells and converts it into an array which is stored in gridCells variable
 let gridCells = Array.from(container.getElementsByClassName('grid-cell'));
 
-createGrid();
-container.addEventListener('mousedown', drawOnGrid);
+container.addEventListener('mousedown', startDrawing);
 body.addEventListener('mouseup', stopDrawing);
 
 // Function Declarations Below
@@ -27,7 +29,7 @@ function createGrid(inputRows = 16) {
     }
 }
 
-function drawOnGrid() {
+function startDrawing() {
     for (let n of gridCells) n.addEventListener('mousemove', changeCellColor);
 }
 
